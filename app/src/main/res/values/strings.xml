@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">GroceryApp</string>
+
+    <string name="continue_with_email">Continue with email</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="phone_number">10 digit Phone number</string>
+    <string name="or">OR</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="verify">Verify</string>
+    <string name="otp">OTP</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="update">Update</string>
+    <string name="sign_out">Sign Out</string>
+</resources>
