@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">GroceryApp</string>
+    <string name="app_name">MiniMart</string>
 
     <string name="continue_with_email">Continue with email</string>
     <string name="send_otp">Send OTP</string>
-    <string name="phone_number">10 digit Phone number</string>
+    <string name="ten_digit_phone_number">10 digit Phone number</string>
+    <string name="phone_number">Phone Number</string>
     <string name="or">OR</string>
     <string name="sign_in_with_google">Sign in with Google</string>
     <string name="verify">Verify</string>
@@ -12,4 +13,33 @@
     <string name="last_name">Last Name</string>
     <string name="update">Update</string>
     <string name="sign_out">Sign Out</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="address">Address</string>
+    <string name="name">Name</string>
+    <string name="contact">Contact</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="not_internet">Not Internet</string>
+    <string name="search">Search</string>
+    <string name="history">History</string>
+    <string name="order">Order</string>
+    <string name="mark_delivery_location">Mark delivery location</string>
+    <string name="current_location">Current Location</string>
+    <string name="update_location">Update Location</string>
+    <string name="choose_location">Choose Location</string>
+    <string name="unknown">Unknown</string>
+    <string name="your_orders">Your Orders</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="change_to_grocers_account">Change to grocers account</string>
+    <string name="recommended">Recommended</string>
+    <string name="requests">Requests</string>
+    <string name="bucket">Bucket</string>
+    <string name="add_item">Add Item</string>
+    <string name="product_name">Product Name</string>
+    <string name="price">Price</string>
+    <string name="add">Add</string>
+    <string name="delete">Delete</string>
+    <string name="remove">Remove</string>
+    <string name="pending_orders">Pending Orders</string>
+    <string name="new_requests">New Requests</string>
 </resources>

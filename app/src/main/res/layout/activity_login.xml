@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/editView"
-            android:hint="@string/phone_number"
+            android:hint="@string/ten_digit_phone_number"
             android:padding="10dp"
             android:inputType="number"
             android:textSize="16sp"

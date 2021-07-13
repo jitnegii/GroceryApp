@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/order"
+        android:enabled="true"
+        android:icon="@drawable/ic_bag"
+        android:title="@string/order" />
+
+    <item
+        android:id="@+id/bucket"
+        android:enabled="true"
+        android:icon="@drawable/ic_cart"
+        android:title="@string/bucket" />
+
+    <item
+        android:id="@+id/history"
+        android:enabled="true"
+        android:icon="@drawable/ic_history"
+        android:title="@string/history" />
+</menu>

@@ -3,9 +3,6 @@ package com.groceryapp.database.entities;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.Relation;
-
-import java.util.List;
 
 @Entity(tableName = "order_table",primaryKeys = {"user_id","time"})
 public class Order {
@@ -16,22 +13,22 @@ public class Order {
 
     @NonNull
     @ColumnInfo(name = "user_id")
-    public String userId;
+    public String user_id;
 
     @ColumnInfo(name = "order_id")
-    public String orderId;
+    public String order_id;
 
 
     @ColumnInfo(name = "shop_name")
-    public String shopName;
+    public String shop_name;
 
 
     @ColumnInfo(name = "total_price")
-    public float totalPrice;
+    public float total_price;
 
 
     @ColumnInfo(name = "total_items")
-    public int totalItems;
+    public int total_items;
 
     public boolean isDelivered() {
         return delivered;
@@ -54,44 +51,44 @@ public class Order {
 
 
     public String getUserId() {
-        return userId;
+        return user_id;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUserId(String user_id) {
+        this.user_id = user_id;
     }
 
     public String getOrderId() {
-        return orderId;
+        return order_id;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    public void setOrderId(String order_id) {
+        this.order_id = order_id;
     }
 
 
     public String getShopName() {
-        return shopName;
+        return shop_name;
     }
 
-    public void setShopName(String shopName) {
-        this.shopName = shopName;
+    public void setShopName(String shop_name) {
+        this.shop_name = shop_name;
     }
 
     public float getTotalPrice() {
-        return totalPrice;
+        return total_price;
     }
 
-    public void setTotalPrice(float totalPrice) {
-        this.totalPrice = totalPrice;
+    public void setTotalPrice(float total_price) {
+        this.total_price = total_price;
     }
 
     public int getTotalItems() {
-        return totalItems;
+        return total_items;
     }
 
-    public void setTotalItems(int totalItems) {
-        this.totalItems = totalItems;
+    public void setTotalItems(int total_items) {
+        this.total_items = total_items;
     }
 
 }

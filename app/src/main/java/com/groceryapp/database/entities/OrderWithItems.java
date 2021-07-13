@@ -9,8 +9,8 @@ public class OrderWithItems {
 
     @Embedded
     public Order order;
-
-    @Relation(parentColumn = "order_id", entityColumn = "order_id")
-    public List<Item> items;
+//
+//    @Relation(parentColumn = "order_id", entityColumn = "order_id")
+//    public List<Item> items;
 
 }

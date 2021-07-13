@@ -29,58 +29,7 @@ import java.util.HashMap;
 
 public class ViewUtils {
 
-    private static Dialog dialog;
-
-    public static Dialog createUpdateUserNameDialog(Activity context) {
-        dialog = new Dialog(context);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setCancelable(false);
-        dialog.setContentView(R.layout.dialog_username);
-
-        CardView updateBtn = dialog.findViewById(R.id.update);
-        EditText firstName = dialog.findViewById(R.id.firstName);
-        EditText lastName = dialog.findViewById(R.id.lastName);
-        updateBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String first = firstName.getText().toString().trim();
-                String last = lastName.getText().toString().trim();
-
-                if (first.length() > 0 && last.length() > 0) {
-                    HashMap<String, Object> map = new HashMap<>();
-
-                    final String name = first+" "+last;
-                    map.put("user_name", name);
-
-
-                    FirebaseUtils.getDatabaseRef("users").child( FirebaseUtils.getUser().getUid()).updateChildren(map, new DatabaseReference.CompletionListener() {
-                        @Override
-                        public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-
-                            MyRoomDatabase.databaseWriteExecutor.execute(() ->
-                                    MyRoomDatabase.getUserDao(context).updateUserName(FirebaseUtils.getUser().getUid(), first + " " + last));
-                            Log.d("UserDialog", "UserUpdated");
-
-                            UserProfileChangeRequest request = new UserProfileChangeRequest.Builder()
-                                    .setDisplayName(name)
-                                    .build();
-                            FirebaseUtils.getUser().updateProfile(request);
-
-                            dialog.dismiss();
-
-                        }
-                    });
-
-
-                } else {
-                    Toast.makeText(context, "Both fields are required", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
-
-        return  dialog;
-
+    public static void connectToInternetToast(Context context){
+        Toast.makeText(context,"No internet connection",Toast.LENGTH_SHORT).show();
     }
 }

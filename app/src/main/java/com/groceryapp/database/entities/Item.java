@@ -1,75 +1,39 @@
 package com.groceryapp.database.entities;
 
-import androidx.room.ColumnInfo;
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "item_table")
+import com.google.firebase.database.Exclude;
+import com.google.firebase.database.IgnoreExtraProperties;
+
+@IgnoreExtraProperties
+@Entity(tableName = "item_table" ,primaryKeys = {"user_id","shop_id","item_id"})
 public class Item {
 
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "item_id")
-    public long itemId;
+    @NonNull
+    public String item_id;
 
-    @ColumnInfo(name = "order_id")
-    public long orderId;
+    @NonNull
+    public String user_id;
 
-    @ColumnInfo(name = "item_name")
-    public String itemName;
+    @NonNull
+    public String shop_id;
 
-    @ColumnInfo(name = "item_price")
-    public float itemPrice;
+    public String item_name;
 
+    public String item_price;
 
-    @ColumnInfo(name = "item_count")
-    public int itemCount;
+    public String user_name;
 
+    public String shop_name;
 
-    public long getItemId() {
-        return itemId;
-    }
+    public String latitude;
 
-    public void setItemId(long itemId) {
-        this.itemId = itemId;
-    }
+    public String longitude;
 
-    public long getOrderId() {
-        return orderId;
-    }
+    public long modified;
 
-    public void setOrderId(long orderId) {
-        this.orderId = orderId;
-    }
+    public String status;
 
-    public String getItemName() {
-        return itemName;
-    }
-
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
-    }
-
-    public float getItemPrice() {
-        return itemPrice;
-    }
-
-    public void setItemPrice(float itemPrice) {
-        this.itemPrice = itemPrice;
-    }
-
-    public int getItemCount() {
-        return itemCount;
-    }
-
-    public void setItemCount(int itemCount) {
-        this.itemCount = itemCount;
-    }
-
-    public void itemIncrement(){
-        itemCount++;
-    }
-
-    public void itemDecrement(){
-        itemCount--;
-    }
 }

@@ -22,7 +22,7 @@ public interface UserDao {
     public LiveData<User> getUserLive(String id);
 
     @Query("UPDATE user_table SET longitude=:longitude , latitude=:latitude  WHERE user_id=:id")
-    public void updateLocation(String id,String longitude,String latitude);
+    public void updateLocation(String id,String latitude,String longitude);
 
     @Query("UPDATE user_table SET address=:address WHERE user_id=:id")
     public void updateAddress(String id,String address);
@@ -33,4 +33,9 @@ public interface UserDao {
     @Query("UPDATE user_table SET user_name =:userName WHERE user_id=:id")
     public void updateUserName(String id,String userName);
 
+    @Query("UPDATE user_table SET number =:number WHERE user_id=:id")
+    public void updateNumber(String id,String number);
+
+    @Query("UPDATE user_table SET is_shop =:isShop WHERE user_id=:id")
+    public void updateIsShop(String id,boolean isShop);
 }

@@ -1,26 +1,17 @@
 package com.groceryapp.activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
 import com.groceryapp.R;
 import com.groceryapp.database.MyRoomDatabase;
 import com.groceryapp.database.entities.User;
-import com.groceryapp.utility.FirebaseUtils;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -31,10 +22,10 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        updateUI(FirebaseUtils.getUser());
+        updateUI(FirebaseAuth.getInstance().getCurrentUser());
     }
 
-    private void updateUI(final FirebaseUser user) {
+    private void updateUI(final FirebaseUser fUser) {
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -42,14 +33,23 @@ public class SplashActivity extends AppCompatActivity {
 
                 Intent intent;
 
-                if (user == null) {
+                if (fUser == null) {
                     intent = new Intent(SplashActivity.this, LoginActivity.class);
-                    Log.e(TAG,"User NULL");
+                    Log.e(TAG, "User NULL");
                 } else {
-                    intent = new Intent(SplashActivity.this, HomeActivity.class);
-                    Log.e(TAG,"User "+ user.getDisplayName());
+
+                    User user = MyRoomDatabase.getUserDao(SplashActivity.this).getUser(fUser.getUid());
+
+                    if (user == null || !user.is_shop) {
+                        intent = new Intent(SplashActivity.this, HomeActivity.class);
+                    } else {
+                        intent = new Intent(SplashActivity.this, GrocerActivity.class);
+                    }
+                    Log.e(TAG, "User " + (user == null ? "NULL" : user.user_name));
+
                 }
 
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();
             }

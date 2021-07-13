@@ -18,9 +18,9 @@ public interface OrderDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void insertOrder(Order order);
-
-    @Query("SELECT * FROM item_table WHERE order_id=:order_id")
-    public List<Item> getItems(String order_id);
+//
+//    @Query("SELECT * FROM item_table WHERE order_id=:order_id")
+//    public List<Item> getItems(String order_id);
 
 //    @Transaction
 //    @Query("SELECT * FROM order_table WHERE (user_id=:userID AND delivered = :delivered) ORDER BY time DESC ")

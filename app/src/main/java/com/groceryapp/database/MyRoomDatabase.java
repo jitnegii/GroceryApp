@@ -6,6 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.groceryapp.database.daos.ItemDao;
 import com.groceryapp.database.daos.OrderDao;
 import com.groceryapp.database.daos.UserDao;
 import com.groceryapp.database.entities.Item;
@@ -20,6 +21,7 @@ public abstract class MyRoomDatabase extends RoomDatabase {
 
     public abstract UserDao userDao();
     public abstract OrderDao orderDao();
+    public abstract ItemDao itemDao();
 
     private static volatile MyRoomDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
@@ -32,6 +34,7 @@ public abstract class MyRoomDatabase extends RoomDatabase {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             MyRoomDatabase.class, "neighborhood_grocery")
+                            .allowMainThreadQueries()
                             .build();
                 }
             }

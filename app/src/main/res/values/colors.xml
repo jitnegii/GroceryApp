@@ -6,7 +6,9 @@
 
     <color name="white">#fff</color>
     <color name="dark">#272727</color>
-
+    <color name="dull">#DDB1BCBE</color>
+    <color name="Gray">@android:color/darker_gray</color>
+    <color name="black">#151515</color>
     <color name="colorBlue_A400">#528CED</color>
     <color name="colorBlue_900">#091980</color>
 
@@ -24,12 +26,13 @@
     <!-- ./ 2nd Gradient color -->
 
     <!-- 3rd Gradient color -->
+    <color name="green">#39C619</color>
     <color name="colorGreen_A400">#00E676</color>
     <color name="colorGreen_900">#1B5E20</color>
     <!-- ./ 3rd Gradient color -->
 
     <!-- 4th Gradient color -->
-    <color name="Red">#FB3E3E</color>
+    <color name="red">#FB3E3E</color>
     <color name="colorRed_A400">#FF1744</color>
     <color name="colorRed_900">#B71C1C</color>
     <!-- ./ 4th Gradient color -->
