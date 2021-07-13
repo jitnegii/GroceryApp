@@ -4,13 +4,15 @@ plugins {
     id 'com.google.secrets_gradle_plugin' version '0.5'
 }
 
+Property localProperties = new Property();
+
 android {
     signingConfigs {
         release {
-            storeFile file('O:\\Projects\\AndroidStudioProjects\\myAppKey.jks')
-            storePassword '7080140210280'
-            keyPassword '7080140210280'
-            keyAlias 'key0'
+            storeFile file(localProperties["KEYSTORE_FILE"])
+            storePassword localProperties["KEYSTORE_PASS"]
+            keyPassword localProperties["KEYSTORE_PASS"]
+            keyAlias localProperties["KEY_ALIAS"]
         }
     }
     compileSdkVersion 30
